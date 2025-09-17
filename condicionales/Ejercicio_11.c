@@ -37,8 +37,11 @@ int main() {
         printf("La multiplicacion de los numeros es: %.2f\n", num1 * num2);
         break;
         
-        case 4: 
-        printf("La division de los numeros es: %.2f\n", num1 / num2);
+        case 4:
+        if (num2 == 0) {
+            printf("No se puede dividir por 0");
+        } else {printf("La division de los numeros es: %.2f\n", num1 / num2);
+        }
         break;
         
         case 5: 
