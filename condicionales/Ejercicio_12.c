@@ -13,12 +13,14 @@ int main() {
     scanf("%d", &dni);
     
     if (dni >= 1000000 && dni <= 99999999) {
+        
         printf("\nSeleccione el medio de pago: \n");
         printf("1- Efectivo.\n");
         printf("2- Tarjeta.\n");
         scanf("%d", &medioDePago);
 
         if (medioDePago == 2) {
+
             printf("\nSeleccione tarjeta: \n");
             printf("1- Visa.\n");
             printf("2- American Express.\n");
@@ -62,18 +64,8 @@ int main() {
 
                 printf("\nRESUMEN DE LA OPERACION: \n\n");
                 printf("- DNI: %d\n", dni);
+                printf("- Medio de pago: Tarjeta\n");
 
-                switch (medioDePago) {
-                    
-                    case 1:
-                    printf("- Medio de pago: Efectivo\n");
-                    break;
-                    
-                    case 2:
-                    printf("- Medio de pago: Tarjeta\n");
-                    break;
-                }
-                
                 switch (tarjeta) {
                     
                     case 1:
@@ -97,7 +89,7 @@ int main() {
                 switch (cuotas) {
                     
                     case 1:
-                    printf("- Cuotas: 0\n");
+                    printf("- Cuotas: 1\n");
                     break;
                     
                     case 2:
@@ -115,9 +107,9 @@ int main() {
                 
                 printf("- Total: $%.2f\n", venta);
 
-                } else {
-                    printf("La opcion es invalida.");
-                }
+            } else {
+                printf("La opcion es invalida.");
+            }   
             
         } else if (medioDePago == 1) {
             
@@ -137,7 +129,7 @@ int main() {
     } else {
         printf("El numero ingresado es invalido.\n");
     }
-    
+
     return 0;
     
 }
