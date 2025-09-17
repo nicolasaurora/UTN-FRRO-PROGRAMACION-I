@@ -3,8 +3,7 @@
 
 int main() {
     
-    float num1;
-    float num2;
+    float num1, num2;
     
     printf("Ingrese el primer numero: \n");
     scanf("%f", &num1);

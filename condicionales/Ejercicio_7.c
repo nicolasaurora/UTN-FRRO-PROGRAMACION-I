@@ -4,9 +4,7 @@
 
 int main() {
     
-    float venta;
-    float descuento;
-    float total;
+    float venta, descuento, total;
     
     printf("Ingrese el valor de la venta: \n");
     scanf("%f", &venta);

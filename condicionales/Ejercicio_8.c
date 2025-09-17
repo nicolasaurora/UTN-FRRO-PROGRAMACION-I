@@ -3,9 +3,7 @@
 
 int main() {
     
-    float saldo;
-    float retiro;
-    float saldoDisponible;
+    float saldo, retiro, saldoDisponible;
     
     printf("Ingrese el saldo: \n");
     scanf("%f", &saldo);
