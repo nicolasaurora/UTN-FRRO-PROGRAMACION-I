@@ -4,8 +4,7 @@
 
 
 int main() {
-
-    int i = 0;
+    
     int sumaImpares;
     
     for (int i = 0; i <= 1; i--) {

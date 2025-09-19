@@ -4,7 +4,6 @@
 
 int main() {
 
-    int i = 0;
     int sumaImpares = 0;
     int contador = 0;
     

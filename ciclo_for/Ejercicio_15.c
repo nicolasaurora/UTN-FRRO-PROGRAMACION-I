@@ -4,17 +4,15 @@
 
 int main() {
 
-    int i = 0;
-    int j = 0;
     float nota, promedioGeneral;
     float promedio = 0;
     float sumaPromedios = 0;
 
-    for (i = 0; i < 5; i ++) {
+    for (int i = 0; i < 5; i ++) {
 
         promedio = 0;
 
-        for (j = 0; j < 3; j ++) {
+        for (int j = 0; j < 3; j ++) {
 
             do {
                 printf("\nIngrese la nota %d del alumno %d: \n", j + 1, i + 1);

@@ -4,7 +4,6 @@
 
 int main() {
 
-    int i = 0;
     int n1;
 
     printf("Ingrese un numero: ");
