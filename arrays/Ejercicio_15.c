@@ -1,28 +1,21 @@
 #include <stdio.h>
 #include <string.h>
 
+int main () {
 
-int main() {
-   
-    char cadena[30];
-    int vocales = 0;
-    
-    printf("Ingrese una cadena de texto: ");
+    char cadena[20];
+
+    printf("Ingrese una palabra: ");
     scanf("%s", cadena);
+
+    int longitudCadena = strlen(cadena);
     
-    for(int i = 0; i < strlen(cadena); i++) {
-        if (cadena[i] == 'a' || cadena[i] == 'e' || cadena[i] == 'i' || cadena[i] == 'o' || cadena[i] == 'u') {
-            vocales ++;
-        }
+
+    for (int i = longitudCadena; i >= 0; i --) {
+        printf("%c", cadena[i]);
     }
     
-    if (vocales > 0) {
-        printf("La cadena ingresada contiene %d cantidad de vocales", vocales);
-    } else {
-        printf("La cadena ingresada no incluye vocales.");
-    }
-    
-   
+
     return 0;
-    
+
 }
