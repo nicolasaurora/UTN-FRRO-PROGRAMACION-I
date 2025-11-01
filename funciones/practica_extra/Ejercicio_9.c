@@ -9,7 +9,7 @@ void mostrarMenu();
 void mostrarTotalVentasPorVendedor(char vendedores[5][15], float ventas[5][6], int cantVendedores, int cantMeses);
 void mostrarVendedorMasVentasFebrero(char vendedores[5][15], float ventas[5][6], int cantVendedores, int cantMeses);
 int buscarVendedor(char vendedores [5][15],int cantVendedores, char nombre[]);
-void mostrarVentaSemestralVendedor(float ventas[5][6], int indiceVendedor, int cantMeses);
+void mostrarVentaSemestralVendedor(char vendedores [5][15], float ventas[5][6], int indiceVendedor, int cantMeses);
 
 int main() {
 
@@ -40,13 +40,13 @@ int main() {
             break;
 
             case 3:
-            printf("Ingrese un nombre: ");
+            printf("\nIngrese un nombre: \n");
             scanf("%s", nombreIngresado);
             indiceVendedor = buscarVendedor(vendedores, cantVendedores, nombreIngresado);
             if (indiceVendedor == -1) {
-                printf ("El vendedor no existe.");
+                printf ("\nEl vendedor no existe.\n");
             } else {
-                mostrarVentaSemestralVendedor(ventas, indiceVendedor, cantMeses);
+                mostrarVentaSemestralVendedor(vendedores, ventas, indiceVendedor, cantMeses);
             }
             break;
             
@@ -104,20 +104,20 @@ void mostrarTotalVentasPorVendedor(char vendedores[5][15], float ventas[5][6], i
 }
 
 void mostrarVendedorMasVentasFebrero(char vendedores[5][15], float ventas[5][6], int cantVendedores, int cantMeses) {
-    char vendedorMasVentasFebrero[15];
-    strcpy(vendedorMasVentasFebrero, vendedores[0]);
-    float mayorVentaFebrero = ventas[0][1];
+    int indiceVendedorMasVentasFebrero = 0;
+    float montoMayorVentaFebrero = 0;
 
     for (int i = 0; i < cantVendedores; i ++) {
-        if (ventas[i][1] > mayorVentaFebrero) {
-            mayorVentaFebrero = ventas[i][1];
-            strcpy(vendedorMasVentasFebrero, vendedores[i]);
+        if (ventas[i][1] > montoMayorVentaFebrero) {
+            montoMayorVentaFebrero = ventas[i][1];
+            indiceVendedorMasVentasFebrero = i;
         }
     }
 
-    printf("El vendedor con mayor venta en febrero fue %s con un total de $%.2f en ventas.", vendedorMasVentasFebrero, mayorVentaFebrero);
+    printf("\nEl vendedor %s fue el que mas vendio con un total de $%.2f en ventas.\n", vendedores[indiceVendedorMasVentasFebrero], montoMayorVentaFebrero);
 
 }
+
 
 
 int buscarVendedor(char vendedores [5][15],int cantVendedores, char nombre[]) {
@@ -130,13 +130,13 @@ int buscarVendedor(char vendedores [5][15],int cantVendedores, char nombre[]) {
     
 }
 
-void mostrarVentaSemestralVendedor(float ventas[5][6], int indiceVendedor, int cantMeses) {
+void mostrarVentaSemestralVendedor(char vendedores [5][15], float ventas[5][6], int indiceVendedor, int cantMeses) {
     float totalVentasVendedor = 0;
     for (int i = 0; i < cantMeses; i ++) {
         totalVentasVendedor += ventas[indiceVendedor][i];
     }
 
-    printf("El total de ventas es: $%.2f", totalVentasVendedor);
+    printf("\nEl total de ventas de %s es: $%.2f\n", vendedores[indiceVendedor], totalVentasVendedor);
 }
 
 
