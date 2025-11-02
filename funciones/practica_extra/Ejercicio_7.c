@@ -3,7 +3,7 @@
 #include <string.h>
 
 
-int validarPrecio(float *precio);
+int validarPrecio(float precio);
 void cargarNombres(char productos[][15], int cantProductos);
 void cargarPrecios(float precios[], int cantProductos);
 void mostrarMenu();
@@ -63,8 +63,9 @@ int main() {
     return 0;
 }
 
-int validarPrecio(float *precio) {
-    if (*precio > 0) {
+int validarPrecio(float precio) {
+
+    if (precio > 0) {
         return 1;
     } else {
         return 0;
@@ -83,10 +84,10 @@ void cargarPrecios(float precios[], int cantProductos) {
         do {
             printf("\nIngrese precio del producto %d: \n", i + 1);
             scanf("%f", &precios[i]);
-            if (validarPrecio(&precios[i]) == 0) {
+            if (validarPrecio(precios[i]) == 0) {
                 printf("\nEl valor debe ser mayor que 0.\n");
             }
-        } while (validarPrecio(&precios[i]) == 0);
+        } while (validarPrecio(precios[i]) == 0);
        
     }
 }

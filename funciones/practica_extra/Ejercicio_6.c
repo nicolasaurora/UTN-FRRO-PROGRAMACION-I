@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 
-int validacionPrecio(float *precio);
+int validacionPrecio(float precio);
 int cargarPrecios(float precios[], int tam);
 void mostrarPrecioMasCaro(float precios[], int tam);
 
@@ -26,11 +26,11 @@ int cargarPrecios(float precios[], int tam) {
         printf("\nIngrese el precio del producto %d: \n", i + 1);
         scanf("%f", &precios[i]);
        
-        if (validacionPrecio(&precios[i]) == 1) {
+        if (validacionPrecio(precios[i]) == 1) {
             cantPrecios++;
         }
        
-        if (validacionPrecio(&precios[i]) == 0 || cantPrecios == tam){
+        if (validacionPrecio(precios[i]) == 0 || cantPrecios == tam){
             printf("\nFinalizo el ingreso de precios.\n");
             return cantPrecios;
         }
@@ -40,12 +40,13 @@ int cargarPrecios(float precios[], int tam) {
 }
 
 
-int validacionPrecio(float *precio) {
-    if (*precio > 0 ) {
+int validacionPrecio(float precio) {
+
+    if (precio > 0 ) {
         return 1;
     }
    
-    if (*precio <= 0) {
+    if (precio <= 0) {
         return 0;
     }
 }

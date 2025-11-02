@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 void mostrarMenu();
-int validarAltura(float *altura);
+int validarAltura(float altura);
 void cargarAlturas(float alturas[], int tam);
 void mostrarAlturaPromedio(float alturas[], int tam);
 void mostrarAlturaMayor(float alturas[], int tam);
@@ -56,15 +56,24 @@ void mostrarMenu() {
     printf("\n4. Salir.");
 }
 
+int validarAltura(float altura) {
+    if(altura >= 1.0 && altura <= 2.50) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+
 void cargarAlturas(float alturas[], int tam) {
     for (int i = 0; i < tam; i ++) {
         do {
             printf("\nIngrese altura %d: ", i + 1);
             scanf("%f", &alturas[i]);
-            if(validarAltura(&alturas[i]) == 0) {
+            if(validarAltura(alturas[i]) == 0) {
                 printf("\nLa altura ingresada debe ser entre 1.0 y 2.50");
             }
-        } while (validarAltura(&alturas[i]) == 0);
+        } while (validarAltura(alturas[i]) == 0);
         
     }
 }
@@ -102,11 +111,4 @@ void mostrarCantMas170(float alturas[], int tam) {
     printf("\nLa cantidad de personas que superan 1.70m son: %d", contadorMas170);
 }
 
-int validarAltura(float *altura) {
-    if(*altura >= 1.0 && *altura <= 2.50) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
 

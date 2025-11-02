@@ -1,20 +1,20 @@
 #include <stdio.h>
 
 
-int cargaTemperaturas(float temperaturas[],int tam);
-void mostrarTemperaturaMasBaja(float temperaturas[], int tam);
-void diaTemperaturaMasBaja(float temperaturas[], int tam);
-void mostrarTemperaturaPromedio(float temperaturas[], int tam);
+int cargaTemperaturas(float temperaturas[],int cantTemp);
+void mostrarTemperaturaMasBaja(float temperaturas[], int cantTemp);
+void diaTemperaturaMasBaja(float temperaturas[], int cantTemp);
+void mostrarTemperaturaPromedio(float temperaturas[], int cantTemp);
 
 int main() {
    
-    int tam = 31;
-    float temperaturas[tam];
+    int cantTemp = 31;
+    float temperaturas[cantTemp];
     int cantTemperaturas;
     float temperaturaMasBaja;
    
    
-    cantTemperaturas = cargaTemperaturas(temperaturas, tam);
+    cantTemperaturas = cargaTemperaturas(temperaturas, cantTemp);
    
     mostrarTemperaturaMasBaja(temperaturas, cantTemperaturas);
    
@@ -25,11 +25,11 @@ int main() {
     return 0;
 }
 
-int cargaTemperaturas(float temperaturas[],int tam) {
+int cargaTemperaturas(float temperaturas[],int cantTemp) {
    
     int cantTemperaturas = 0;
    
-    for ( int i = 0; i < tam; i ++) {
+    for ( int i = 0; i < cantTemp; i ++) {
         do {
             printf ("Ingrese temperatura dia %d: ", i + 1);
             scanf("%f", &temperaturas[i]);
@@ -51,9 +51,9 @@ int cargaTemperaturas(float temperaturas[],int tam) {
     return cantTemperaturas;
 }
 
-void mostrarTemperaturaMasBaja(float temperaturas[], int tam) {
+void mostrarTemperaturaMasBaja(float temperaturas[], int cantTemp) {
     float temperaturaMasBaja = temperaturas[0];
-    for ( int i = 0; i < tam; i ++) {
+    for ( int i = 0; i < cantTemp; i ++) {
         if (temperaturas[i] < temperaturaMasBaja) {
             temperaturaMasBaja = temperaturas[i];
         }
@@ -62,10 +62,10 @@ void mostrarTemperaturaMasBaja(float temperaturas[], int tam) {
     printf("La temperatura mas baja es: %.2f", temperaturaMasBaja);
 }
 
-void diaTemperaturaMasBaja(float temperaturas[], int tam) {
+void diaTemperaturaMasBaja(float temperaturas[], int cantTemp) {
     int diaTempMinima = 0;
     float temperaturaMasBaja = temperaturas[0];
-    for ( int i = 0; i < tam; i ++) {
+    for ( int i = 0; i < cantTemp; i ++) {
         if (temperaturas[i] < temperaturaMasBaja) {
             temperaturaMasBaja = temperaturas[i];
             diaTempMinima = i;
@@ -75,15 +75,15 @@ void diaTemperaturaMasBaja(float temperaturas[], int tam) {
     printf("El dia de la temperatura mas baja es el dia %d del mes", diaTempMinima + 1);
 }
 
-void mostrarTemperaturaPromedio(float temperaturas[], int tam) {
+void mostrarTemperaturaPromedio(float temperaturas[], int cantTemp) {
     float sumaTemp = 0;
     float tempPromedio;
    
-    for ( int i = 0; i < tam; i ++) {
+    for ( int i = 0; i < cantTemp; i ++) {
         sumaTemp += temperaturas[i];
     }
    
-    tempPromedio = sumaTemp / tam;
+    tempPromedio = sumaTemp / cantTemp;
    
     printf("La temperatura promedio es: %.2f", tempPromedio);
 }

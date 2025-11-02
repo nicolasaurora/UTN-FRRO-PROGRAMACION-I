@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 
-int validarPuntaje(int *puntaje);
-void cargaPuntajes(int puntajes[], int cantClientes);
-void mostrarPromedio(int puntajes[], int cantClientes);
-void mostrarCantidadDeClientes5(int puntajes[], int cantClientes);
-void mostrarMenosFrecuente(int puntajes[], int cantClientes);
+int validarPuntaje(int puntaje);
+void cargaPuntajes(int puntajes[10], int cantClientes);
+void mostrarPromedio(int puntajes[10], int cantClientes);
+void mostrarCantidadDeClientes5(int puntajes[10], int cantClientes);
+void mostrarMenosFrecuente(int puntajes[10], int cantClientes);
 
 int main() {
    
@@ -23,9 +23,9 @@ int main() {
     return 0;
 }
 
-int validarPuntaje(int *puntaje) {
+int validarPuntaje(int puntaje) {
    
-    if (*puntaje > 0 && *puntaje < 6) {
+    if (puntaje > 0 && puntaje < 6) {
         return 1;
     } else {
         return 0;
@@ -33,19 +33,21 @@ int validarPuntaje(int *puntaje) {
    
 }
 
-void cargaPuntajes(int puntajes[], int cantClientes) {
+void cargaPuntajes(int puntajes[10], int cantClientes) {
+
     for (int i = 0;i < cantClientes; i ++) {
+
         do {
             printf("\nIngrese el puntaje de satisfaccion (1-5), del cliente %d: \n", i + 1);
             scanf("%d", &puntajes[i]);
-            if(validarPuntaje(&puntajes[i]) == 0) {
+            if(validarPuntaje(puntajes[i]) == 0) {
                 printf("\nEl puntaje ingresado es incorrecto, debe ser entre 1 y 5\n");
             }
-        } while (validarPuntaje(&puntajes[i]) == 0);
+        } while (validarPuntaje(puntajes[i]) == 0);
     }
 }
 
-void mostrarPromedio(int puntajes[], int cantClientes) {
+void mostrarPromedio(int puntajes[10], int cantClientes) {
     int sumaTotal = 0;
     float promedio;
    
@@ -56,7 +58,7 @@ void mostrarPromedio(int puntajes[], int cantClientes) {
     printf("\nEl promedio de satisfaccion es de: %.2f\n", promedio);
 }
 
-void mostrarCantidadDeClientes5(int puntajes[], int cantClientes) {
+void mostrarCantidadDeClientes5(int puntajes[10], int cantClientes) {
     int cantCon5 = 0;
    
     for (int i = 0; i < cantClientes; i ++) {
@@ -67,7 +69,7 @@ void mostrarCantidadDeClientes5(int puntajes[], int cantClientes) {
     printf("\nLa cantidad de clientes que puntuaron con 5 fueron: %d\n", cantCon5);
 }
 
-void mostrarMenosFrecuente(int puntajes[], int cantClientes) {
+void mostrarMenosFrecuente(int puntajes[10], int cantClientes) {
    int frecuencias[5] = {0};  
 
     for (int i = 0; i < cantClientes; i++) {

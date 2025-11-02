@@ -5,7 +5,7 @@ int cargaPuntajes(int puntajes[], int cantPuntajes);
 void mostrarPuntajeMasAlto(int puntajes[], int cantPuntajes);
 void mostrarPromedioGeneral(int puntajes[], int cantPuntajes);
 int cantAprobados(int puntajes[], int cantPuntajes);
-void mostrarPorcentajeDesaprobados(int puntajes[], int cantPuntajes, int *aprobados);
+void mostrarPorcentajeDesaprobados(int puntajes[], int cantPuntajes, int aprobados);
 
 int main() {
    
@@ -17,7 +17,7 @@ int main() {
     mostrarPuntajeMasAlto(puntajes, cantPuntajes);
     mostrarPromedioGeneral(puntajes, cantPuntajes);
     cantidadAprobados = cantAprobados(puntajes, cantPuntajes);
-    mostrarPorcentajeDesaprobados(puntajes,cantPuntajes, &cantidadAprobados);
+    mostrarPorcentajeDesaprobados(puntajes,cantPuntajes, cantidadAprobados);
    
     return 0;
 }
@@ -74,11 +74,12 @@ int cantAprobados(int puntajes[], int cantPuntajes) {
     return aprobados;
 }
 
-void mostrarPorcentajeDesaprobados(int puntajes[], int cantPuntajes, int *aprobados) {
+void mostrarPorcentajeDesaprobados(int puntajes[], int cantPuntajes, int aprobados) {
+
     float porcentajeDesaprobados;
     float porcentajeAprobados;
    
-    porcentajeAprobados = (*aprobados * 100) / cantPuntajes;
+    porcentajeAprobados = (aprobados * 100) / cantPuntajes;
    
     porcentajeDesaprobados = 100 - porcentajeAprobados;
    
