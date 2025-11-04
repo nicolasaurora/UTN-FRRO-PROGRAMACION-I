@@ -55,7 +55,7 @@ int main() {
             printf("\nSaliendo...\n");
             break;
 
-            case 5:
+            default:
             printf("\nIngrese una opcion valida.\n");
             break;
         }
